@@ -1,0 +1,13 @@
+.editCol {
+    min-width: 100px;
+    text-align: center;
+}
+
+.priceDisplay {
+    display: inline-block;
+    height: 22px;
+}
+
+.priceInput {
+    display: none;
+}

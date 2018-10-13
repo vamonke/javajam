@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>JavaJam Coffee House</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script>
+		function inputCheck(input) {
+			switch (input.name) {
+				case 'name':
+					var nameRegex = /^[a-zA-Z\s]*$/;
+					if (!nameRegex.test(input.value)) {
+						alert('Please enter a valid name');
+					};
+					break;
+				case 'email':
+					var emailRegex = /^[\w\.\-]+@([a-zA-Z]+\.){1,3}[a-zA-Z]{2,3}$/;
+					if (!emailRegex.test(input.value)) {
+						alert('Please enter a valid email');
+					};
+					break;
+				case 'date':
+					if (new Date(input.value) < new Date()) {
+						alert('Please select a start date that\'s after today');
+					};
+					break;
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			JavaJam Coffee House
+		</header>
+		<nav id="leftcolumn">
+			<a href="index.html">Home</a><br>
+			<a href="menu.php">Menu</a><br>
+			<a href="music.html">Music</a><br>
+			<a href="jobs.html">Jobs</a><br>
+			<br>
+			<a href="product.php">Update</a><br>
+            <a href="sales.html">Sales</a><br>
+		</nav>
+		<div class="content">
+			<h2>Jobs at JavaJam</h2>
+			<p>
+				Want to work at JavaJam? Fill out the form below to start your application. Required fields are marks with an
+				asterisk *
+			</p>
+
+			<form name="form" action="show_post.php" method="post">
+				<table id="form">
+					<tr>
+						<td>*Name:</td>
+						<td>
+							<input oninput="inputCheck(this)" type="text" name="name" size="30" required>
+						</td>
+					</tr>
+					<tr>
+						<td>*Email:</td>
+						<td>
+							<input oninput="inputCheck(this)" type="email" name="email" required>
+						</td>
+					</tr>
+					<tr>
+						<td>Start Date</td>
+						<td>
+							<input oninput="inputCheck(this)" type="date" name="date">
+						</td>
+					</tr>
+					<tr>
+						<td>*Experience:</td>
+						<td>
+							<textarea type="text" name="experience" required></textarea>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit" value="Apply Now">
+			</form>
+		</div>
+		<footer>
+			<small>
+				<i>Copyright &copy; 2014 JavaJam Coffee House
+				</i>
+			</small>
+			<br>
+			<a href="mailto:varick@lim.com">
+				varick@lim.com
+			</a>
+		</footer>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #e5d398;
+}
+
+a {
+    color: #795240;
+}
+
+a:hover {
+    color: #a8886b;
+}
+
+#wrapper {
+    background-color: #e2d2b0;
+    color: #2f0100;
+    width: 80%;
+    margin: 10px auto 20px;
+    min-width: 850px;
+    box-shadow: 5px 5px 10px;
+}
+
+header {
+    font-family: 'Juice ITC';
+    background-color: #d2b48c;
+    color: #9a6633;
+    font-size: 48pt;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000000;
+    font-weight: bold;
+}
+
+h2 {
+    color: #2e0000;
+}
+
+.content {
+    float: right;
+    width: calc(100% - 150px);
+    background-color: #f5f5dc;
+    overflow: auto;
+    padding: 0 20px 20px;
+}
+
+ul {
+    list-style-image: url('assets/bullet.png');
+    padding-left: 25px;
+}
+
+.paddingleft {
+    padding-left: 20px;
+}
+
+.floatright {
+    float: right;
+}
+
+.floatleft {
+    float: left;
+}
+
+.center {
+    text-align: center;
+}
+
+nav {
+    float: left;
+    width: 150px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    line-height: 1.4em;
+    color: #795240;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #a8886b;
+}
+
+footer {
+    background-color: #d2b48c;
+    font-size: 70%;
+    text-align: center;
+    clear: both;
+    padding: 20px;
+}
+
+/* Menu, Music */
+
+table {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Menu Table */
+
+#menu tr:nth-of-type(odd) {
+    background-color: #d2b48c;
+}
+#menu td:first-of-type {
+    font-weight: bold;
+}
+#menu td {
+    padding: 20px;
+}
+#menu th {
+    background-color: #d2b48c;
+    padding: 10px;
+}
+#menu input {
+    width: 60px;
+}
+#menu input[type=radio] {
+    width: auto;
+}
+#menu #total-tr {
+    text-align: right;
+    vertical-align: top;
+}
+#menu #total-field {
+    width: 100%;
+    text-align: right;
+}
+
+
+/* Music Table */
+
+#music td {
+    padding: 10px;
+}
+
+#music td:only-child {
+    padding: 0;
+    font-weight: bold;
+    background-color: #e1d1af;
+}
+
+#music img {
+    margin: 0 auto;
+    display: block;
+    width: 100px;
+}
+
+/* Jobs */
+
+#form {
+    margin: 0;
+    width: auto;
+}
+
+#form td:first-of-type {
+    text-align: right;
+    padding:  5px 30px;
+    width: 100px;
+}
+
+/* SQL Response */
+
+.response {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Sales quantity by category */
+
+#menu.category td:first-of-type {
+    font-weight: normal;
+}
+
+/* #menu.category td:last-of-type {
+    font-weight: bold;
+} */
