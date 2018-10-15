@@ -10,6 +10,7 @@
 <body>
 	<div class="response">
     <?php
+      // var_dump($_POST);
       $servername = "localhost";
       $username = "f31im";
       $password = "f31im";
