@@ -6,7 +6,6 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	<script src="menu.js"></script>
 </head>
 
 <body>
@@ -38,6 +37,7 @@
 			</a>
 		</footer>
 	</div>
+	<script src="sales_today.js"></script>
 </body>
 
 </html>

@@ -34,7 +34,7 @@
       }
       $sql = rtrim($sql, ','); // remove comma from end of $sql
       $sql .= "\r\n WHERE id=" . $_POST['id'];
-      // echo $sql;
+      echo $sql."<br /><br />";
       if (mysqli_query($conn, $sql)) {
         echo "Menu updated successfully";
       } else {
@@ -45,7 +45,7 @@
     ?>
     <br />
     <br />
-    <a href='/public_html/CaseStudyPt4/product.php'>Return to products</a>
+    <a href='product.php'>Return to products</a>
   </div>
 
 </body>

@@ -19,6 +19,7 @@
     sum(orders.amt) AS total_amt
     FROM orders
     RIGHT JOIN menu on orders.product_id = menu.ID
+    WHERE DATE(orders.date) = CURDATE()
     GROUP BY menu.name";
 
   $result = mysqli_query($conn, $sql);

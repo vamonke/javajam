@@ -16,12 +16,19 @@
     sum(CASE WHEN size = 'single' THEN qty END) as single_qty,
     sum(CASE WHEN size = 'dbl' THEN qty END) as dbl_qty,
     sum(orders.qty) AS total_qty
-    FROM orders";
+    FROM orders
+	  WHERE DATE(date) = CURDATE()";
 
   $result = mysqli_query($conn, $sql);
 
-  if (mysqli_num_rows($result) > 0) {
+  if (mysqli_num_rows($result) > 0) { 
     echo "<table id='menu' class='category center'>";
+    echo "  <tr>";
+    echo "    <th>Endless Cup</th>";
+    echo "    <th>Single</th>";
+    echo "    <th>Double</th>";
+    echo "    <th>Total</th>";
+    echo "  </tr>";
 
     while($row = mysqli_fetch_assoc($result)) {
       $total = (int)stripslashes($row['total_qty']);
@@ -30,20 +37,10 @@
       $dbl = (int)stripslashes($row['dbl_qty']);
 
       echo "  <tr>";
-      echo "    <th>Endless Cup</th>";
-      echo "    <th>Single</th>";
-      echo "    <th>Double</th>";
-      echo "    <th>Total</th>";
-      echo "  </tr>";
-      echo "  <tr>";
       echo "    <td>".$endless."</td>";
       echo "    <td>".$single."</td>";
       echo "    <td>".$dbl."</td>";
       echo "    <td>".$total."</td>";
-      echo "  </tr>";
-      echo "  <tr>";
-      echo "  </tr>";
-      echo "  <tr>";
       echo "  </tr>";
       echo "</tr>";
     }       

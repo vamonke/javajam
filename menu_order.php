@@ -10,7 +10,7 @@
 <body>
   <div class="response">
     <?php
-      var_dump($_POST);
+      // var_dump($_POST);
       $servername = "localhost";
       $username = "f31im";
       $password = "f31im";
@@ -46,7 +46,7 @@
       mysqli_close($conn);
     ?>
     <br />
-    <a href='/public_html/CaseStudyPt4/menu.php'>Return to menu</a>
+    <a href='menu.php'>Return to menu</a>
   </div>
 
 </body>
