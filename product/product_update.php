@@ -4,7 +4,7 @@
 <head>
 	<title>JavaJam Coffee House</title>
 	<meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
       }
       $sql = rtrim($sql, ','); // remove comma from end of $sql
       $sql .= "\r\n WHERE id=" . $_POST['id'];
-      echo $sql."<br /><br />";
+      // echo $sql."<br /><br />";
       if (mysqli_query($conn, $sql)) {
         echo "Menu updated successfully";
       } else {

@@ -101,6 +101,7 @@ footer {
 table {
     width: 80%;
     margin: 0 auto;
+    border-collapse: collapse;
 }
 
 /* Menu Table */
@@ -108,26 +109,33 @@ table {
 #menu tr:nth-of-type(odd) {
     background-color: #d2b48c;
 }
+
 #menu td:first-of-type {
     font-weight: bold;
 }
+
 #menu td {
     padding: 20px;
 }
+
 #menu th {
     background-color: #d2b48c;
     padding: 10px;
 }
+
 #menu input {
     width: 60px;
 }
+
 #menu input[type=radio] {
     width: auto;
 }
+
 #menu #total-tr {
     text-align: right;
     vertical-align: top;
 }
+
 #menu #total-field {
     width: 100%;
     text-align: right;
@@ -161,7 +169,7 @@ table {
 
 #form td:first-of-type {
     text-align: right;
-    padding:  5px 30px;
+    padding: 5px 30px;
     width: 100px;
 }
 

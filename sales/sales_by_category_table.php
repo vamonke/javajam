@@ -12,42 +12,51 @@
   }
 
   $sql = "SELECT
-    sum(CASE WHEN size = 'endless' THEN qty END) as endless_qty,
-    sum(CASE WHEN size = 'single' THEN qty END) as single_qty,
-    sum(CASE WHEN size = 'dbl' THEN qty END) as dbl_qty,
-    sum(orders.qty) AS total_qty
+	  DATE_FORMAT(date,'%d/%m/%Y') AS date,
+    size,
+    sum(qty) AS total_qty
     FROM orders
-	  WHERE DATE(date) = CURDATE()";
-
+    GROUP BY DATE(date), size";
+  // run query above in phpMyAdmin to see response
+  
   $result = mysqli_query($conn, $sql);
 
-  if (mysqli_num_rows($result) > 0) { 
-    echo "<table id='menu' class='category center'>";
-    echo "  <tr>";
-    echo "    <th>Endless Cup</th>";
-    echo "    <th>Single</th>";
-    echo "    <th>Double</th>";
-    echo "    <th>Total</th>";
-    echo "  </tr>";
+  function capitalize($size) {
+    if ($size == 'dbl') {
+      return 'Double';
+    } else {
+      return ucfirst($size); // uppercase first character
+    }
+  }
 
-    while($row = mysqli_fetch_assoc($result)) {
-      $total = (int)stripslashes($row['total_qty']);
-      $endless = (int)stripslashes($row['endless_qty']);
-      $single = (int)stripslashes($row['single_qty']);
-      $dbl = (int)stripslashes($row['dbl_qty']);
+  if (mysqli_num_rows($result) > 0) {
+    $tableDate = NULL; // keeps track of the date in each table
+    while ($row = mysqli_fetch_assoc($result)) {
+      $newDate = $row['date'];
 
-      echo "  <tr>";
-      echo "    <td>".$endless."</td>";
-      echo "    <td>".$single."</td>";
-      echo "    <td>".$dbl."</td>";
-      echo "    <td>".$total."</td>";
-      echo "  </tr>";
+      if (!$tableDate || $tableDate != $newDate) {
+        if ($tableDate) { // close previous <table>
+          echo "</table>";
+        }
+        echo "<table class='salesTable'>"; // create new <table> for new date
+        echo "  <tr>";
+        echo "    <td class='date' colspan='2'>".$newDate."</td>";
+        echo "  </tr>";
+        echo "  <tr>";
+        echo "    <th>Category</th>";
+        echo "    <th>Quantity</th>";
+        echo "  </tr>";
+        $tableDate = $newDate;
+      }
+
+      echo "<tr>";
+      echo "  <td>".capitalize($row['size'])."</td>";
+      echo "  <td>".$row['total_qty']."</td>";
       echo "</tr>";
-    }       
-    
+    }
     echo "</table>";
   } else {
-    echo "No qty yet";
+    echo "No sales yet";
   }
 
   mysqli_close($conn);

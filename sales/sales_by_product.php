@@ -5,6 +5,7 @@
 	<title>JavaJam Coffee House</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" type="text/css" href="sales.css">
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 </head>
 
@@ -20,12 +21,15 @@
 			<a href="../jobs.html">Jobs</a><br>
 			<br>
 			<a href="../product/product.php">Update</a><br>
-            <a href="../sales/sales.html">Sales</a><br>
+            <a href="sales.html">Sales</a><br>
 		</nav>
 		<div class="content">
-			<h2>Total dollar sales by products</h2>
+			<h2>Total Dollar Sales By Products</h2>
 			<?php include 'sales_by_product_table.php';?>
 			<br />
+			<p class="center">
+				<a href="sales.html">Return to sales</a>
+			</p>
 		</div>
 		<footer>
 			<small>

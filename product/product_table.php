@@ -17,13 +17,12 @@
   if (mysqli_num_rows($result) > 0) {
     echo "<table id='menu'>";
     while($row = mysqli_fetch_assoc($result)) {
-      $id = htmlspecialchars(stripslashes($row['ID']));
-      $name = htmlspecialchars(stripslashes($row['name']));
-      $desc = stripslashes($row['description']);
-      // NULL => 0.00 for prices
-      $endless = number_format((float)stripslashes($row['endless']), 2, '.', '');
-      $single = number_format((float)stripslashes($row['single']), 2, '.', '');
-      $dbl = number_format((float)stripslashes($row['dbl']), 2, '.', '');
+      $id = $row['ID'];
+      $name = $row['name'];
+      $desc = $row['description'];
+      $endless = $row['endless'];
+      $single = $row['single'];
+      $dbl = $row['dbl'];
 
       echo "<tr>";
       echo "  <td class='editCol'>";
@@ -35,17 +34,20 @@
       echo "    <form name='form' action='product_update.php' method='post'>"; // POST to product_update.php
       echo "      <input type='hidden' value='".$id."' name='id' />"; // send item ID
 
-      if ($endless != 0.00) { // displays only if endless price is not zero
+      if ($endless) { // displays only if endless price is not NULL
+        $endless = number_format($endless, 2, '.', ''); // 2 decimal places
         echo " Endless Cup: $";
         echo "<span class='priceDisplay'>".$endless."</span>"; // endless price
         echo "<input name='endless' value='".$endless."' class='priceInput' type='number' min='0.01' step='0.01'>"; // endless input
       }
-      if ($single != 0.00) { // displays only if single price is not zero
+      if ($single) { // displays only if single price is not NULL
+        $single = number_format($single, 2, '.', ''); // 2 decimal places
         echo " Single: $";
         echo "<span class='priceDisplay'>".$single."</span>"; // single price
         echo "<input name='single' value='".$single."' class='priceInput' type='number' min='0.01' step='0.01'>"; // single input
       }
-      if ($dbl != 0.00) {  // displays only if double price is not zero
+      if ($dbl) { // displays only if double price is not NULL
+        $dbl = number_format($dbl, 2, '.', ''); // 2 decimal places
         echo " Double: $";
         echo "<span class='priceDisplay'>".$dbl."</span>"; // double price
         echo "<input name='dbl' value='".$dbl."' class='priceInput' type='number' min='0.01' step='0.01'>"; // double input
