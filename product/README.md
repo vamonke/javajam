@@ -1,6 +1,6 @@
 # Case Study 4(i) - Price Update
 
-Objective: Update prices of product
+Objective: Update prices of products
 
 We first need to create a `menu` table where we store the names, description, prices, etc of each product.
 
