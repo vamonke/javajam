@@ -16,8 +16,6 @@ We first need to create a `menu` table where we store the names, description, pr
 
 *A_I refers to Auto Increment. It ensures that no ID is repeated*
 
-*Length of 10,2 for decimal means that there are 10 digits with 2 decimal places.*
-
 Populate the table with the 3 products.
 
 | ID | name             | description              | endless | single | double |
