@@ -5,22 +5,26 @@ Objective: Update prices of product
 We first need to create a `menu` table where we store the names, description, prices, etc of each product.
 
 
-| field         | type          | null  | default   | extra |
-|---------------|---------------|-------|-----------|-------|
-| ID            | int(100)      | no    | none      |  AUTO_INCREMENT, PRIMARY KEY |
-| name          | VARCHAR(100)  | no    | none      |       |
-| description   | VARCHAR(200)  | no    | none      |       |
-| endless       | float         | yes   | NULL      |       |
-| single        | float         | yes   | NULL      |       |
-| dbl           | float         | yes   | NULL      |       |
+| Name          | Type      | Length    | Null  | Default   | Index         | A_I   |
+|---------------|-----------|-----------|-------|-----------|---------------|-------|
+| ID            | int       | 100       |       | None      | PRIMARY KEY   |  ✔    |
+| name          | VARCHAR   | 100       |       | None      |               |       |
+| description   | VARCHAR   | 200       |       | None      |               |       |
+| endless       | float     |           | ✔     | NULL      |               |       |
+| single        | float     |           | ✔     | NULL      |               |       |
+| dbl           | float     |           | ✔     | NULL      |               |       |
+
+*A_I refers to Auto Increment. It ensures that no ID is repeated*
+
+*Length of 10,2 for decimal means that there are 10 digits with 2 decimal places.*
 
 Populate the table with the 3 products.
 
-| ID | name          | description              | endless | single | double |
-|----|---------------|--------------------------|---------|--------|--------|
-| 1  | Just Java     | Regular House blend...   | 2       | NULL   | NULL   |
-| 2  | Just Java     | House blended coffee...  | NULL    | 2      | 3      |
-| 3  | Iced Cappucino| Sweetened espresso...    | NULL    | 4.75   | 5.75   |
+| ID | name             | description              | endless | single | double |
+|----|------------------|--------------------------|---------|--------|--------|
+| 1  | Just Java        | Regular House blend...   | 2       | NULL   | NULL   |
+| 2  | Cafe au Lait     | House blended coffee...  | NULL    | 2      | 3      |
+| 3  | Iced Cappucino   | Sweetened espresso...    | NULL    | 4.75   | 5.75   |
 
 
 ## File directory
