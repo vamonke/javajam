@@ -22,7 +22,7 @@ When your WampServer shows online, you can open your browser and go to http://lo
 
 *Credits: http://www.icynets.com/set-wampserver-computer/*
 
-*FYI: To close the server, right click on the WAMP icon in your system tray and click exit.*
+*FYI: To close the server, right click on the WampServer icon in your system tray and click exit.*
 
 #### Project Directory
 
