@@ -34,8 +34,7 @@
       // Size inputs
       // Prices are wrapped in a <span> tag for jquery selection in menu.js
       if ($endless) { // display option only if endless price is not NULL
-        $inputType = ($single || $dbl) ? 'radio' : 'hidden'; // hide input if endless is the only available option
-        echo "      <input name='size[".$id."]' value='endless' type='".$inputType."' checked oninput='getSubtotal(this)'>";
+        echo "      <input name='size[".$id."]' value='endless' type='hidden' checked oninput='getSubtotal(this)'>"; // hidden since we know endless is the only available option
         echo "      Endless Cup: $<span>";
         echo          number_format($endless, 2, '.', ''); // endless price
         echo "      </span>";
