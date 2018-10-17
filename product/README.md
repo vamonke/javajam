@@ -16,6 +16,8 @@ We first need to create a `menu` table where we store the names, description, pr
 
 *A_I refers to Auto Increment. It ensures that no ID is repeated*
 
+*dbl is used instead of double because double is a reserved word*
+
 Populate the table with the 3 products.
 
 | ID | name             | description              | endless | single | double |
@@ -32,7 +34,19 @@ Fetches all entries from menu with sql query: `SELECT * FROM menu`.
 
 The name, description, and prices for each product is displayed in a table row `<tr>`. Each row has a `<form>` for the prices. An Edit/Cancel button is used to toggle the display of the input fields. The toggling is handled by jQuery in `product.js`.
 
-Within each form, there is an input field for each price, a hidden ID input and a submit button. The ID input allows us to send the ID of the product in the form, so we specify the product being updated. It is hidden because we don't want the user to change the corresponding ID for each table row.
+Within each form, there is an input field for each price, a hidden ID input and a submit button. The ID input allows us to send the ID of the product in the form, so we specify the product being updated. It is hidden because we don't want the user to change the corresponding ID for each table row. E.g.
+
+```html
+<form action='product_update.php' method='post' ...>
+    <input type='hidden' name='id' ...>         // product id
+    ...
+    <input type='number' name='single' ...>     // new single price
+    ...
+    <input type='number' name='dbl' ...>        // new double price
+    ...
+</form>
+```
+
 
 Alternatively, you can use the product name to specify which product to update, if that is easier to understand.
 
