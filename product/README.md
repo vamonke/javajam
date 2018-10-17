@@ -2,6 +2,23 @@
 
 Objective: Update prices of products
 
+## Workflow
+
+The proposed workflow:
+1. User visits `product.php` page and is shown a table of products
+2. User clicks on Edit button for a product, which displays a form within the table row
+3. User keys in a new price using the form and hits submit
+4. User is directed to `product_update.php` page and is shown that the update is successful
+5. User clicks on a 'Return to product' link to return to `product.php` page
+
+There are other workflows:
+- 3 pages: `product`, `product_form` & `product_update`. It is simplier to code but more troublesome for the user.
+- 1 page for everything. User friendly but a pain in the ass to code.
+
+IMO having 2 pages - `product.php` and `product_update.php` - is a good balance between coding and user friendliness.
+
+## Database
+
 We first need to create a `menu` table where we store the names, description, prices, etc of each product.
 
 
@@ -26,6 +43,9 @@ Populate the table with the 3 products.
 
 
 ## File directory
+
+### product.php
+Does not do any PHP stuff. It simply imports the menu table wrapped in `product_table.php`. See the source code to understand.
 
 ### product_table.php
 > Displays menu table with a price update form in each product row
@@ -74,6 +94,3 @@ UPDATE menu SET single=4.75, dbl=5.75 WHERE id=3
 *Tip: Echo your sql statement before running it for quick debugging (`echo $sql`). If there are errors, run the statement in myphpadmin to make sure the syntax is correct.*
 
 The result of the update (success/failure) is then displayed.
-
-### product.php
-Imports the menu table using `include` (line 29)
