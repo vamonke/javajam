@@ -14,9 +14,7 @@ We first need to create a `menu` table where we store the names, description, pr
 | single        | float     |           | ✔     | NULL      |               |       |
 | dbl           | float     |           | ✔     | NULL      |               |       |
 
-*A_I refers to Auto Increment. It ensures that no ID is repeated*
-
-*dbl is used instead of double because double is a reserved word*
+***A_I** (Auto Increment) ensures that no ID is repeated i.e. each product has a unique ID. **dbl** is used instead of **double**, because **double** is a reserved word.*
 
 Populate the table with the 3 products.
 
@@ -30,11 +28,13 @@ Populate the table with the 3 products.
 ## File directory
 
 ### product_table.php
+> Displays menu table with a price update form in each product row
+
 Fetches all entries from menu with sql query: `SELECT * FROM menu`.
 
-The name, description, and prices for each product is displayed in a table row `<tr>`. Each row has a `<form>` for the prices. An Edit/Cancel button is used to toggle the display of the input fields. The toggling is handled by jQuery in `product.js`.
+The name, description, and prices for each product is displayed in a table row `<tr>`. Each row has a `<form>` for the updating the prices. An Edit/Cancel button is used to toggle the display of the input fields. The toggling is handled by jQuery in `product.js`.
 
-Within each form, there is an input field for each price, a hidden ID input and a submit button. The ID input allows us to send the ID of the product in the form, so we specify the product being updated. It is hidden because we don't want the user to change the corresponding ID for each table row. E.g.
+Within each form, there is a hidden ID input, an input for each price and a submit button. The ID input allows us to send the unique product ID in the form, so we can specify which product is being updated. It is hidden because we don't want the user to change the corresponding ID for each table row. E.g.
 
 ```html
 <form action='product_update.php' method='post' ...>
@@ -47,8 +47,7 @@ Within each form, there is an input field for each price, a hidden ID input and 
 </form>
 ```
 
-
-Alternatively, you can use the product name to specify which product to update, if that is easier to understand.
+~~Alternatively, you can use the product name to specify which product to update, if that is easier to understand.~~
 
 On submit, the form calls `product_update.php` using `POST` method.
 
@@ -56,9 +55,9 @@ On submit, the form calls `product_update.php` using `POST` method.
 ![product_table.php](https://raw.githubusercontent.com/vamonke/javajam/master/product/product.png)
 
 ### product_update.php
-Updates the products and displays the response
+> Updates the products using incoming form data
 
-The variables sent using the form is store in `$_POST` which can be viewed using `var_dump($_POST)` e.g. 
+On submiting the form, the browser will be redirected to `product_update.php`. The incoming form data can be accessed using the `$_POST` variable which can be viewed with `var_dump($_POST)` e.g. 
 ```
 array(3) {
     ["id"]=> string(1) "3"
@@ -66,13 +65,15 @@ array(3) {
     ["dbl"]=> string(4) "5.75"
 }
 ```
-Tip: Use `var_dump($_POST)` to make sure your data is passed correctly in the form.
+*Tip: Use `var_dump($_POST)` to make sure your data is passed correctly in the form.*
 
 A SQL statment then constructed to update the menu table. e.g.
 ```
 UPDATE menu SET single=4.75, dbl=5.75 WHERE id=3
 ```
-Tip: Echo your sql statement before running it for quick debugging (`echo $sql`). If there are errors, run the statement in myphpadmin to make sure the syntax is correct.
+*Tip: Echo your sql statement before running it for quick debugging (`echo $sql`). If there are errors, run the statement in myphpadmin to make sure the syntax is correct.*
+
+The result of the update (success/failure) is then displayed.
 
 ### product.php
 Imports the menu table using `include` (line 29)
