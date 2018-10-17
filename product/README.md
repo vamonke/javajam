@@ -38,7 +38,8 @@ Alternatively, you can use the product name to specify which product to update, 
 
 On submit, the form calls `product_update.php` using `POST` method.
 
-![product_table.php](https://raw.githubusercontent.com/vamonke/javajam/blob/master/product/product.png)
+`product_table.php` as viewed in the browser:
+![product_table.php](https://raw.githubusercontent.com/vamonke/javajam/master/product/product.png)
 
 ### product_update.php
 Updates the products and displays the response
