@@ -87,10 +87,10 @@ array(3) {
 ```
 *Tip: Use `var_dump($_POST)` to make sure your data is passed correctly in the form.*
 
-A SQL statment then constructed to update the menu table. e.g.
+A SQL statement then constructed to update the product. e.g.
 ```
 UPDATE menu SET single=4.75, dbl=5.75 WHERE id=3
 ```
-*Tip: Echo your sql statement before running it for quick debugging (`echo $sql`). If there are errors, run the statement in myphpadmin to make sure the syntax is correct.*
+*Tip: Echo your sql statement before running it for quick debugging (`echo $sql`). If there are errors, run the statement in phpMyAdmin to make sure the syntax is correct.*
 
 The result of the update (success/failure) is then displayed.
