@@ -43,7 +43,7 @@ Within each form, there is an input field for each price, a hidden ID input and 
     <input type='number' name='single' ...>     // new single price
     ...
     <input type='number' name='dbl' ...>        // new double price
-    ...
+    <button type='submit' ...>Update</button>   // submit form
 </form>
 ```
 
