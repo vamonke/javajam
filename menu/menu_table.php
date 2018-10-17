@@ -57,7 +57,7 @@
 
       echo "      </td>";
       echo "      <td>";
-      echo "        <input name='qty[".$id."]' type='number' min='0' value='0' step='1' oninput='getSubtotal(this)'>"; // qty input
+      echo "        <input name='qty[".$id."]' class='qty' type='number' min='0' value='0' step='1' oninput='getSubtotal(this)'>"; // qty input
       echo "      </td>";
       echo "      <td>";
       echo "        <input name='amt[".$id."]' class='subtotal' type='text' value='0.00' readonly>"; // subtotal input
