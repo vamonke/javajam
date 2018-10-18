@@ -26,7 +26,8 @@
 		</nav>
 		<div class="content">
 			<h2>Coffee at JavaJam</h2>
-			<?php include 'product_table.php';?>
+			<?php include 'product_update.php'; ?>
+			<?php include 'product_table.php'; ?>
 			<br />
 		</div>
 		<footer>
@@ -41,5 +42,4 @@
 		</footer>
 	</div>
 </body>
-
 </html>

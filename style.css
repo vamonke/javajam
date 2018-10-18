@@ -173,13 +173,6 @@ table {
     width: 100px;
 }
 
-/* SQL Response */
-
-.response {
-    padding: 50px 20px;
-    text-align: center;
-}
-
 /* Sales quantity by category */
 
 #menu.category td:first-of-type {
