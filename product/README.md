@@ -15,7 +15,7 @@ There are other workflows:
 - 3 pages: `product`, `product_form` & `product_update`. It is simplier to code but more troublesome for the user.
 - 1 page for everything. User friendly but a pain in the ass to code.
 
-IMO having 2 pages - `product.php` and `product_update.php` - is a good balance between coding and user friendliness.
+Its up to you to decide which workflow to go with but for this guide, we'll be using 2 pages - `product.php` and `product_update.php`. IMO its a good balance between coding and user friendliness. 
 
 ## Database
 
