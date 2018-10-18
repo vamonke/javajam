@@ -45,7 +45,7 @@ Populate the table with the 3 products.
 ## File directory
 
 ### product.php
-Does not do any PHP stuff. It simply imports the menu table wrapped in `product_table.php`. See the source code to understand.
+Although its a .php file, its mostly HTML except for 1 line of PHP code which imports the menu table wrapped in `product_table.php`. See the source code to understand.
 
 ### product_table.php
 > Displays menu table with a price update form in each product row
