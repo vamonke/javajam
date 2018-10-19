@@ -4,18 +4,15 @@ Objective: Update prices of products
 
 ## Workflow
 
-The proposed workflow:
-1. User visits `product.php` page and is shown a table of products
+To maximise user experience, the entire process of updating price will happen within 1 page - `product.php`.
+
+~~1. User visits `product.php` page and is shown a table of products
 2. User clicks on Edit button for a product, which displays a form within the table row
 3. User keys in a new price using the form and hits submit
 4. User is directed to `product_update.php` page and is shown that the update is successful
-5. User clicks on a 'Return to product' link to return to `product.php` page
+5. User clicks on a 'Return to product' link to return to `product.php` page~~
 
-There are other workflows:
-- 3 pages: `product`, `product_form` & `product_update`. It is simplier to code but more troublesome for the user.
-- 1 page for everything. User friendly but a pain in the ass to code.
-
-Its up to you to decide which workflow to go with but for this guide, we'll be using 2 pages - `product.php` and `product_update.php`. IMO its a good balance between coding and user friendliness. 
+~~Its up to you to decide which workflow to go with but for this guide, we'll be using 2 pages - `product.php` and `product_update.php`. IMO its a good balance between coding and user friendliness.~~
 
 ## Database
 
@@ -45,7 +42,9 @@ Populate the table with the 3 products.
 ## File directory
 
 ### product.php
-Although its a .php file, its mostly HTML except for 1 line of PHP code which imports the menu table wrapped in `product_table.php`. See the source code to understand.
+Although its a php file, its mostly HTML except for 2 lines of PHP code which import:
+1. `product_table.php` which displays the menu table and price update form
+2. `product_update.php` which updates the price
 
 ### product_table.php
 > Displays menu table with a price update form in each product row
@@ -69,7 +68,7 @@ Within each form, there is a hidden ID input, an input for each price and a subm
 
 ~~Alternatively, you can use the product name to specify which product to update, if that is easier to understand.~~
 
-On submit, the form calls `product_update.php` using `POST` method.
+On submit, the form calls `product.php` using `POST` method.
 
 `product_table.php` as viewed in the browser:
 ![product_table.php](https://raw.githubusercontent.com/vamonke/javajam/master/product/product.png)
@@ -77,7 +76,7 @@ On submit, the form calls `product_update.php` using `POST` method.
 ### product_update.php
 > Updates the products using incoming form data
 
-On submiting the form, the browser will be redirected to `product_update.php`. The incoming form data can be accessed using the `$_POST` variable which can be viewed with `var_dump($_POST)` e.g. 
+On submiting the form, the browser will be redirected to `product.php` with the incoming form data. The form data can be accessed using the `$_POST` variable which can be viewed with `var_dump($_POST)` e.g. 
 ```
 array(3) {
     ["id"]=> string(1) "3"
@@ -93,4 +92,4 @@ UPDATE menu SET single=4.75, dbl=5.75 WHERE id=3
 ```
 *Tip: Echo your sql statement before running it for quick debugging (`echo $sql`). If there are errors, run the statement in phpMyAdmin to make sure the syntax is correct.*
 
-The result of the update (success/failure) is then displayed.
+The result of the update (success/failure) is then shown to the user via an alert box.
