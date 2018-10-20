@@ -1,5 +1,6 @@
 <?php
   // var_dump($_POST);
+
   if (!empty($_POST)) { // check if there is POST data. If not, do nothing.
     $servername = "localhost";
     $username = "f31im";
@@ -25,10 +26,11 @@
       $sql .= " dbl=".$_POST['dbl'].",";
     }
     $sql = rtrim($sql, ','); // remove comma from end of $sql
-    $sql .= "\r\n WHERE id=" . $_POST['id'];
-    // echo $sql;
+    $sql .= " WHERE id=" . $_POST['id'];
     
     echo "<script>";
+    echo "  console.log('".$sql."');"; // to check $sql
+    
     if (mysqli_query($conn, $sql)) {
       echo "alert('Menu updated successfully');";
     } else {

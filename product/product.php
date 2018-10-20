@@ -11,6 +11,7 @@
 </head>
 
 <body>
+	<?php include 'product_update.php'; ?>
 	<div id="wrapper">
 		<header>
 			JavaJam Coffee House
@@ -26,7 +27,6 @@
 		</nav>
 		<div class="content">
 			<h2>Coffee at JavaJam</h2>
-			<?php include 'product_update.php'; ?>
 			<?php include 'product_table.php'; ?>
 			<br />
 		</div>

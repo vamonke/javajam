@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <div class="response">
+  <p class="center">
     <?php
       // var_dump($_POST);
       $servername = "localhost";
@@ -47,7 +47,7 @@
     ?>
     <br />
     <a href='menu.php'>Return to menu</a>
-  </div>
+  </p>
 
 </body>
 
