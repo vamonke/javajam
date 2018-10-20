@@ -2,17 +2,15 @@
 
 Objective: Update prices of products
 
-## Workflow
+Note that in this example, all data/values are soft-coded (dynamic), and not hard-coded (fixed). This means that names, descriptions, prices are all stored in the MySQL database, fetched and formatted into HTML by PHP.
+
+The other option would be to hardcode the names and descriptions in HTML (since they are non-editable) and only make the prices dynamic. This means a lot of PHP files or a lot of if-else statements. Simple to understand but more code to write.
+
+## Process
 
 To maximise user experience, the entire process of updating price will happen within 1 page - `product.php`.
 
-~~1. User visits `product.php` page and is shown a table of products
-2. User clicks on Edit button for a product, which displays a form within the table row
-3. User keys in a new price using the form and hits submit
-4. User is directed to `product_update.php` page and is shown that the update is successful
-5. User clicks on a 'Return to product' link to return to `product.php` page~~
-
-~~Its up to you to decide which workflow to go with but for this guide, we'll be using 2 pages - `product.php` and `product_update.php`. IMO its a good balance between coding and user friendliness.~~
+![product_update_process.php](https://raw.githubusercontent.com/vamonke/javajam/master/product/process.png)
 
 ## Database
 
@@ -28,7 +26,9 @@ We first need to create a `menu` table where we store the names, description, pr
 | single        | float     |           | ✔     | NULL      |               |       |
 | dbl           | float     |           | ✔     | NULL      |               |       |
 
-***A_I** (Auto Increment) ensures that no ID is repeated i.e. each product has a unique ID. **dbl** is used instead of **double**, because **double** is a reserved word.*
+**A_I** (Auto Increment) ensures that no ID is repeated i.e. each product has a unique ID. **dbl** is used instead of **double**, because **double** is a reserved word.
+
+*Even though product name is unique in this situation, using ID to identify a product is good database design practice. If you use name as a primary key, you have to ensure that every product has a unique name to prevent collision. By using ID, you don't have to worry about collisions and generally, this is the standard practice for all database design.*
 
 Populate the table with the 3 products.
 
