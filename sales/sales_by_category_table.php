@@ -12,12 +12,12 @@
   }
 
   $sql = "SELECT
-	  DATE_FORMAT(date,'%d/%m/%Y') AS date,
+	  DATE_FORMAT(date,'%d/%m/%Y - %W') AS date,
     size,
     sum(qty) AS total_qty
     FROM orders
     GROUP BY DATE(date), size
-    ORDER BY DATE(date) DESC";
+    ORDER BY date DESC";
   // run query above in phpMyAdmin to see response
   
   $result = mysqli_query($conn, $sql);

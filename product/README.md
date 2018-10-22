@@ -88,7 +88,7 @@ array(3) {
 
 A SQL statement then constructed to update the product. e.g.
 ```
-UPDATE menu SET single=4.75, dbl=5.75 WHERE id=3
+UPDATE menu SET single=4.75, dbl=5.75 WHERE ID=3
 ```
 *Tip: Echo your sql statement before running it for quick debugging (`echo $sql`). If there are errors, run the statement in phpMyAdmin to make sure the syntax is correct.*
 

@@ -26,7 +26,7 @@
       $sql .= " dbl=".$_POST['dbl'].",";
     }
     $sql = rtrim($sql, ','); // remove comma from end of $sql
-    $sql .= " WHERE id=" . $_POST['id'];
+    $sql .= " WHERE ID=" . $_POST['id'];
     
     echo "<script>";
     echo "  console.log('".$sql."');"; // to check $sql

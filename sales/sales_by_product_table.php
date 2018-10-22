@@ -12,12 +12,13 @@
   }
 
   $sql = "SELECT
-    DATE_FORMAT(orders.date,'%d/%m/%Y') AS date,
+    DATE_FORMAT(orders.date,'%d/%m/%Y - %W') AS date,
     menu.name,
     sum(orders.amt) AS sales
     FROM orders
     RIGHT JOIN menu on orders.product_id = menu.ID
-    GROUP BY DATE(orders.date), menu.name";
+    GROUP BY DATE(orders.date), menu.name
+    ORDER BY date DESC";
   // run query above in phpMyAdmin to see response
 
   $result = mysqli_query($conn, $sql);
