@@ -15,7 +15,7 @@
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
-    echo "<form name='form' action='menu_order.php' method='post'>"; // POST to product_update.php
+    echo "<form name='form' action='menu.php' method='post'>"; // POST to product_update.php
     echo "  <table id='menu'>";
 
     while($row = mysqli_fetch_assoc($result)) {

@@ -41,7 +41,7 @@
 			</a>
 		</footer>
 	</div>
-	<script src="sales_today.js"></script>
+	<script src="sales.js"></script>
 </body>
 
 </html>

@@ -21,3 +21,7 @@ table, th, td {
 .salesTable th {
     background-color: #e2d2b0;
 }
+
+.maxTr {
+    background-color: #fceca7;
+}

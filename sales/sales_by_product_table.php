@@ -39,9 +39,9 @@
 
       echo "<tr>";
       echo "  <td>".$row['name']."</td>";
-      echo "  <td>$";
+      echo "  <td>$<span class='salesValue'>";
       echo      number_format($row['sales'], 2, '.', ''); // 2 decimal places
-      echo "  </td>";
+      echo "  </span></td>";
       echo "</tr>";
     }
     echo "</table>";

@@ -1,54 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+  // var_dump($_POST);
+  if (!empty($_POST)) { // check if there is POST data. If not, do nothing.
 
-<head>
-	<title>JavaJam Coffee House</title>
-	<meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../style.css">
-</head>
+    $servername = "localhost";
+    $username = "f31im";
+    $password = "f31im";
+    $dbname = "f31im";
 
-<body>
-  <p class="center">
-    <?php
-      // var_dump($_POST);
-      $servername = "localhost";
-      $username = "f31im";
-      $password = "f31im";
-      $dbname = "f31im";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: ".mysqli_connect_error());
+    }
 
-      // Create connection
-      $conn = mysqli_connect($servername, $username, $password, $dbname);
-      // Check connection
-      if (!$conn) {
-        die("Connection failed: ".mysqli_connect_error());
-      }
+    $success = true;
+    $empty = true;
+    $errorMsg = '';
+    
+    echo "<script>";
 
-      $success = true;
-      foreach ($_POST['size'] as $id => $size) {
-        $qty = $_POST['qty'][$id];
-        $amt = $_POST['amt'][$id];
-        if ($qty != 0) {
-          $sql = "INSERT INTO orders (product_id, size, qty, amt) VALUES ('".$id."', '".$size."', '".$qty."', '".$amt."')";
-          // echo $sql."<br />";
-          if (mysqli_query($conn, $sql)) {
-            // insert operation successful;
-          } else {
-            echo "Error occurred: " . mysqli_error($conn);
-            $success = false;
-          }
+    foreach ($_POST['size'] as $id => $size) {
+      $qty = $_POST['qty'][$id];
+      $amt = $_POST['amt'][$id];
+      if ($qty != 0) {
+        $empty = false;
+        $sql = "INSERT INTO orders (product_id, size, qty, amt) VALUES ('".$id."', '".$size."', '".$qty."', '".$amt."')";
+        echo "console.log(\"".$sql."\");"; // to check $sql
+        if (mysqli_query($conn, $sql)) {
+          // insert operation successful
+        } else {
+          $success = false;
+          $errorMsg .= "Error occurred: ".mysqli_error($conn)."\\n";
         }
       }
+    }
 
-      if ($success) {
-        echo "Order confirmed<br />";
-      }
+    if ($empty) {
+      echo "alert('Order form is empty');";
+    } else if ($success) {
+      echo "alert('Order confirmed');";
+    } else {
+      echo "alert(".$errorMsg."');";
+    }
+    echo "</script>";
 
-      mysqli_close($conn);
-    ?>
-    <br />
-    <a href='menu.php'>Return to menu</a>
-  </p>
-
-</body>
-
-</html>
+    mysqli_close($conn);
+  }
+?>

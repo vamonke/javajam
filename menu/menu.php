@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<?php include 'menu_order.php'; ?>
 	<div id="wrapper">
 		<header>
 			JavaJam Coffee House
@@ -25,7 +26,7 @@
 		</nav>
 		<div class="content">
 			<h2>Coffee at JavaJam</h2>
-			<?php include 'menu_table.php';?>
+			<?php include 'menu_table.php'; ?>
 			<br />
 		</div>
 		<footer>

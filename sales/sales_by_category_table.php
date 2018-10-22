@@ -16,7 +16,8 @@
     size,
     sum(qty) AS total_qty
     FROM orders
-    GROUP BY DATE(date), size";
+    GROUP BY DATE(date), size
+    ORDER BY DATE(date) DESC";
   // run query above in phpMyAdmin to see response
   
   $result = mysqli_query($conn, $sql);
@@ -51,7 +52,7 @@
 
       echo "<tr>";
       echo "  <td>".capitalize($row['size'])."</td>";
-      echo "  <td>".$row['total_qty']."</td>";
+      echo "  <td class='salesValue'>".$row['total_qty']."</td>";
       echo "</tr>";
     }
     echo "</table>";
