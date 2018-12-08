@@ -1,3 +1,5 @@
+Please star this project if you find it useful :smiley:
+
 # IM4717 Web Application Design: Case Study Part 4
 
 To work on Case Study Part 4 (or your project) on your local machine, you will need a web server since PHP files need to be run on the server.
